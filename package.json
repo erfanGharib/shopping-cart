@@ -1,5 +1,5 @@
 {
-  "name": "react-test",
+  "name": "shopping-cart",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,15 +9,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "tailwindcss": "^3.0.16",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run build:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css": "tailwindcss build src/App.css -o src/tailwind.css"
+    "build:css": "postcss src/app.css -o src/tailwind.css"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.17"
   }
 }
