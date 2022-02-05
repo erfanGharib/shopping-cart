@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
 class Counter extends Component {
-    state = {
-        count: 0,
-    }
-
     render() {
         return (
-            <React.Fragment>
+            <div className='mb-4 flex items-center'>
+                {this.props.children}
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button 
-                    onClick={this.handleIncreament()}
-                    className='py-0.5 px-2 bg-gray-500 text-white rounded-sm hover:bg-gray-700'
+                <button
+                    onClick={() => this.props.onIncrement(this.props.counter)}
+                    className='py-1 px-2 ml-3 bg-gray-500 text-white rounded-md hover:bg-gray-700'
                 >
                     Increment
                 </button>
-            </React.Fragment>
+                <button
+                    onClick={() => this.props.onDelete(this.props.counter.id)} 
+                    className='bg-red-600 py-1 px-2 ml-3 text-white rounded-md hover:bg-red-700'
+                >
+                    Delete
+                </button>
+            </div>
         )
     }
 
-    handleIncreament =()=> {
-        this.setState({ count: this.state.count+1 })
-    }
     getBadgeClasses() {
-        let classes = 'p-1 font-bold rounded-sm text-stone-900 bg-';
-        classes += this.state.count===0 ? 'yellow-500' : 'blue-500 text-white';
+        let classes = 'px-2 py-1 font-bold rounded-md bg-';
+        classes += this.props.counter.value===0 ? 'yellow-400 text-stone-900' : 'blue-600 text-white';
         return classes;
     }
     formatCount() {
         // object destructuring use for putting object properties
         // in variable ↓
-        const { count } = this.state;
+        const { value: count } = this.props.counter;
         return count === 0 ? 'Zero' : count;
     }
 }
