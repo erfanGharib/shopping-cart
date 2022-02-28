@@ -5,6 +5,7 @@ module.exports = {
     './*.js',
     './src/components/*.jsx'
   ],
+  mode: 'jit',
   content: [],
   theme: {
     extend: {},
