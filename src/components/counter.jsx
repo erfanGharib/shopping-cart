@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 class Counter extends Component {
     render() {
         return (
-            <div className='mb-4 flex items-center'>
+            <div className='mb-4 flex w-72 justify-between items-center'>
                 {this.props.children}
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button
                     onClick={() => this.props.onIncrement(this.props.counter)}
-                    className='py-1 px-2 ml-3 bg-gray-500 text-white rounded-md hover:bg-gray-700'
+                    className='py-1 px-2 bg-gray-500 text-white rounded-md hover:bg-gray-700'
                 >
                     Increment
                 </button>
                 <button
                     onClick={() => this.props.onDelete(this.props.counter.id)} 
-                    className='bg-red-600 py-1 px-2 ml-3 text-white rounded-md hover:bg-red-700'
+                    className='bg-red-600 py-1 px-2 text-white rounded-md hover:bg-red-700'
                 >
                     Delete
                 </button>
